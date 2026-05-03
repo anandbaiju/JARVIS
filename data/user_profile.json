@@ -1,0 +1,15 @@
+{
+  "name": "Anand",
+  "location": "Kerala, India",
+  "occupation": "Developer / Builder",
+  "interests": [
+    "AI",
+    "tech",
+    "Iron Man",
+    "building things"
+  ],
+  "assistant_name": "JARVIS",
+  "wake_word": "hey jarvis",
+  "preferred_model": "qwen2.5:7b",
+  "personality_notes": "Direct, no fluff. Treat me like a smart adult."
+}

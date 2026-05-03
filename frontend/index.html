@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="J.A.R.V.I.S — Just A Rather Very Intelligent System. Personal AI Assistant HUD Interface.">
+    <title>J.A.R.V.I.S — Personal AI</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ── Scanline Overlay ─────────────────────────────── -->
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- ── Arc Reactor ──────────────────────────────────── -->
+    <div class="arc-reactor" aria-hidden="true">
+        <div class="arc-ring arc-ring-1"></div>
+        <div class="arc-ring arc-ring-2"></div>
+        <div class="arc-ring arc-ring-3"></div>
+        <div class="arc-core"></div>
+    </div>
+
+    <!-- ── Main Container ───────────────────────────────── -->
+    <div class="app-container">
+
+        <!-- Header -->
+        <header class="hud-header" id="hud-header">
+            <h1 class="title">J.A.R.V.I.S</h1>
+            <p class="tagline">Just A Rather Very Intelligent System</p>
+        </header>
+
+        <!-- Status Bar -->
+        <div class="status-bar" id="status-bar">
+            <div class="status-left">
+                <span class="status-dot" id="status-dot"></span>
+                <span class="status-label" id="status-label">CONNECTING...</span>
+                <span class="model-pill" id="model-pill">—</span>
+            </div>
+            <div class="status-right">
+                <span class="clock" id="clock">00:00:00</span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+
+            <!-- Chat Window -->
+            <div class="chat-panel" id="chat-panel">
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Welcome message -->
+                    <div class="message jarvis-message">
+                        <span class="msg-prefix">› JARVIS:</span>
+                        <span class="msg-text">Systems online. All diagnostics nominal. How may I assist you, Sir?</span>
+                        <span class="msg-time" id="welcome-time"></span>
+                    </div>
+                </div>
+
+                <!-- Typing Indicator -->
+                <div class="typing-indicator" id="typing-indicator">
+                    <span class="msg-prefix">› JARVIS:</span>
+                    <div class="dot-pulse">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side Panel -->
+            <aside class="side-panel" id="side-panel">
+                <h2 class="panel-title">CONTROLS</h2>
+                <button class="hud-btn" id="btn-sysinfo" onclick="getSystemInfo()">
+                    <span class="btn-icon">⚙</span> SYSTEM INFO
+                </button>
+                <button class="hud-btn" id="btn-search" onclick="promptWebSearch()">
+                    <span class="btn-icon">🔍</span> WEB SEARCH
+                </button>
+                <button class="hud-btn" id="btn-reminders" onclick="getReminders()">
+                    <span class="btn-icon">⏰</span> REMINDERS
+                </button>
+                <button class="hud-btn btn-danger" id="btn-clear" onclick="clearChat()">
+                    <span class="btn-icon">✕</span> CLEAR CHAT
+                </button>
+
+                <div class="panel-divider"></div>
+
+                <div class="panel-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">STATUS</span>
+                        <span class="stat-value" id="panel-status">—</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">MODEL</span>
+                        <span class="stat-value" id="panel-model">—</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">USER</span>
+                        <span class="stat-value" id="panel-user">—</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Input Bar -->
+        <div class="input-bar" id="input-bar">
+            <input
+                type="text"
+                id="chat-input"
+                class="chat-input"
+                placeholder="Enter command, Sir..."
+                autocomplete="off"
+                spellcheck="false"
+            >
+            <button class="send-btn" id="btn-send" onclick="sendMessage()">
+                SEND
+            </button>
+            <button class="mic-btn" id="btn-mic" onclick="startVoice()">
+                MIC
+            </button>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

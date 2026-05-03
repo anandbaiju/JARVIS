@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+httpx
+chromadb
+faster-whisper
+pydantic
+python-dotenv
+duckduckgo-search
+sounddevice
+numpy
+pyaudio
+psutil
+pyttsx3
